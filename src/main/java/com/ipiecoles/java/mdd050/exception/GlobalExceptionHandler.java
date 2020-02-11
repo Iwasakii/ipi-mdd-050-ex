@@ -34,4 +34,10 @@ public class GlobalExceptionHandler {
     protected String handleConversionFailedException(HttpRequestMethodNotSupportedException ex) {
         return "La commande " + ex.getMethod() + " n'est pas autorisée.";
     }
+
+    @ExceptionHandler(ConflictException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    protected String handleConflictException(ConflictException ex) {
+        return ex.getMessage();
+    }
 }

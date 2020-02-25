@@ -30,11 +30,11 @@ public class EmployeController {
     @Autowired
     private CommercialRepository commercialRepository;
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    public Long countEmployes() {
-        //Récupère le nb d'employés et l'envoyer au client
-        return employeRepository.count();
-    }
+        @RequestMapping(value = "/count", method = RequestMethod.GET)
+        public Long countEmployes() {
+            //Récupère le nb d'employés et l'envoyer au client
+            return employeRepository.count();
+        }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Employe getEmployeById(@PathVariable(value = "id") Long id) {
@@ -68,7 +68,7 @@ public class EmployeController {
         }
 
         if(page < 0 || page > maxPage ) {
-            throw new IllegalArgumentException(("La page" + page + "doit être comprise entre 0 et " + maxPage));
+            throw new IllegalArgumentException(("La page " + page + " doit être comprise entre 0 et " + maxPage));
         }
 
         if(!Arrays.asList("id", "nom", "prenom", "matricule", "dateEmbauche", "salaire").contains(sortProperty)) {
